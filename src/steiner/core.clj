@@ -32,10 +32,8 @@
 
 (defn det [v1 v2]
   "determinant of [x1 y1] [x2 y2]"
-  (let [x1 (first v1)
-        y1 (last v1)
-        x2 (first v2)
-        y2 (last v2)]
+  (let [[x1 y1] v1
+        [x2 y2] v2]
   (- (* x1 y2) (* y1 x2))))
 
 ; http://en.wikipedia.org/wiki/Line-line_intersection
