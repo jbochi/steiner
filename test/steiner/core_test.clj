@@ -11,6 +11,5 @@
   (expect (< (- sqrt3 (distance A S)) 1e-6))
   (expect (< (- sqrt3 (distance B S)) 1e-6))
   (expect (< (- sqrt3 (distance C S)) 1e-6))
-  (expect S (steiner-point [B A C]))
   (expect (< (distance S (steiner-point [B A C])) 1e-6))
   (expect (< (distance S (steiner-point [C A B])) 1e-6)))
