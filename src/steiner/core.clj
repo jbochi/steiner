@@ -56,7 +56,8 @@
   "steiner-point of a triangle"
   (let [[A B C] triangle
         d60 (* 1/3 Math/PI)
-        direction (if (> (det (v- A B) (v- A C)) 0) d60 (- d60))
+        cross-product (det (v- A B) (v- A C))
+        direction (if (> cross-product  0) d60 (- d60))
         C* (rotate-on-point A B (- direction))
         B* (rotate-on-point A C direction)]
   (intersection B B* C C*)))
