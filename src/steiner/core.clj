@@ -33,8 +33,10 @@
         v2 (v- c a)
         n1 (normalize v1)
         n2 (normalize v2)
-        cross-product (det n1 n2)]
-    (Math/asin cross-product)))
+        [x1 y1] n1
+        [x2 y2] n2
+        dot-product (+ (* x1 x2) (* y1 y2))]
+    (Math/acos dot-product)))
 
 (defn rotate [p theta]
   "rotate point by theta"
@@ -75,3 +77,10 @@
         C* (rotate-on-point A B (- direction))
         B* (rotate-on-point A C direction)]
   (intersection B B* C C*)))
+
+
+(let [A [0 0]
+      B [1 0]
+      C [1/2 (Math/sqrt 3/4)]
+      S (steiner-point [A B C])]
+      (angle S A C))
