@@ -18,13 +18,11 @@
 
 (defn rotate [v theta]
   "rotate vector by theta"
-  (let [x (first v)
-        y (last v)
+  (let [[x y] v
         sin (Math/sin theta)
         cos (Math/cos theta)]
   [(- (* x cos) (* y sin))
    (+ (* x sin) (* y cos))]))
-
 
 (defn rotate-on-point [v1 v2 theta]
   "rotate v2-v1 on point v1 by theta"
@@ -53,7 +51,6 @@
         numy (det [dp1p2 dy1y2] [dp3p4 dy3y4])
         dem (det [dx1x2 dy1y2] [dx3x4 dy3y4])]
     [(/ numx dem) (/ numy dem)]))
-
 
 (defn steiner-point [triangle]
   "steiner-point of a triangle"
