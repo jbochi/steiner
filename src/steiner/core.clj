@@ -61,9 +61,10 @@
     [(/ numx dem) (/ numy dem)]))
 
 
-(defn steiner-point [A B C]
+(defn steiner-point [triangle]
   "steiner-point of a triangle"
-  (let [d60 (* 1/3 Math/PI)
+  (let [[A B C] triangle
+        d60 (* 1/3 Math/PI)
         C* (rotate-on-point A B (- d60))
         B* (rotate-on-point A C d60)]
   (intersection B B* C C*)))
