@@ -1,37 +1,37 @@
 (ns steiner.core)
 
-(defn v+ [a b]
+(defn v+ [v1 v2]
   "sum vectors"
-  (map + a b))
+  (map + v1 v2))
 
-(defn v- [a b]
+(defn v- [v1 v2]
   "subtract vectors"
-  (map - a b))
+  (map - v1 v2))
 
 (defn size [v]
   "size of vector"
   (Math/sqrt (reduce + (map #(* % %) v))))
 
-(defn distance [v1 v2]
+(defn distance [p1 p2]
   "distance between points"
-  (size (v- v1 v2)))
+  (size (v- p1 p2)))
 
-(defn rotate [v theta]
-  "rotate vector by theta"
-  (let [[x y] v
+(defn rotate [p theta]
+  "rotate point by theta"
+  (let [[x y] p
         sin (Math/sin theta)
         cos (Math/cos theta)]
   [(- (* x cos) (* y sin))
    (+ (* x sin) (* y cos))]))
 
-(defn rotate-on-point [v1 v2 theta]
-  "rotate v2-v1 on point v1 by theta"
-  (v+ v1 (rotate (v- v2 v1) theta)))
+(defn rotate-on-point [p1 p2 theta]
+  "rotate point p2 around point p1 by theta"
+  (v+ p1 (rotate (v- p2 p1) theta)))
 
-(defn det [v1 v2]
+(defn det [p1 p2]
   "determinant of [x1 y1] [x2 y2]"
-  (let [[x1 y1] v1
-        [x2 y2] v2]
+  (let [[x1 y1] p1
+        [x2 y2] p2]
   (- (* x1 y2) (* y1 x2))))
 
 ; http://en.wikipedia.org/wiki/Line-line_intersection
