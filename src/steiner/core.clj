@@ -12,9 +12,29 @@
   "size of vector"
   (Math/sqrt (reduce + (map #(* % %) v))))
 
+(defn normalize [v]
+  "normalize vector"
+  (let [s (size v)]
+    (map #(/ % s) v)))
+
 (defn distance [p1 p2]
   "distance between points"
   (size (v- p1 p2)))
+
+(defn det [p1 p2]
+  "determinant of [x1 y1] [x2 y2]"
+  (let [[x1 y1] p1
+        [x2 y2] p2]
+  (- (* x1 y2) (* y1 x2))))
+
+(defn angle [a b c]
+  "angle between points B and C around A"
+  (let [v1 (v- b a)
+        v2 (v- c a)
+        n1 (normalize v1)
+        n2 (normalize v2)
+        cross-product (det n1 n2)]
+    (Math/asin cross-product)))
 
 (defn rotate [p theta]
   "rotate point by theta"
@@ -27,12 +47,6 @@
 (defn rotate-on-point [p1 p2 theta]
   "rotate point p2 around point p1 by theta"
   (v+ p1 (rotate (v- p2 p1) theta)))
-
-(defn det [p1 p2]
-  "determinant of [x1 y1] [x2 y2]"
-  (let [[x1 y1] p1
-        [x2 y2] p2]
-  (- (* x1 y2) (* y1 x2))))
 
 ; http://en.wikipedia.org/wiki/Line-line_intersection
 (defn intersection [p1 p2 p3 p4]
