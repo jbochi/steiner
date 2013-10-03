@@ -41,14 +41,10 @@
 ; http://en.wikipedia.org/wiki/Line-line_intersection
 (defn intersection [p1 p2 p3 p4]
   "calculate intersection of lines between points p1-p2 and p3-p4"
-  (let [x1 (first p1)
-        x2 (first p2)
-        x3 (first p3)
-        x4 (first p4)
-        y1 (last p1)
-        y2 (last p2)
-        y3 (last p3)
-        y4 (last p4)
+  (let [[x1 y1] p1
+        [x2 y2] p2
+        [x3 y3] p3
+        [x4 y4] p4
         dp1p2 (det p1 p2)
         dp3p4 (det p3 p4)
         dx1x2 (- x1 x2)
