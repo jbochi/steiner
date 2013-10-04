@@ -77,10 +77,3 @@
         C* (rotate-on-point A B (- direction))
         B* (rotate-on-point A C direction)]
   (intersection B B* C C*)))
-
-
-(let [A [0 0]
-      B [1 0]
-      C [1/2 (Math/sqrt 3/4)]
-      S (steiner-point [A B C])]
-      (angle S A C))
