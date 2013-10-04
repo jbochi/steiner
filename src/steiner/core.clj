@@ -80,5 +80,10 @@
         cross-product (det (v- A B) (v- A C))
         direction (if (> cross-product  0) d60 (- d60))
         C* (rotate-on-point A B (- direction))
-        B* (rotate-on-point A C direction)]
-  (intersection B B* C C*)))
+        B* (rotate-on-point A C direction)
+        max-angle (* 2/3 Math/PI)
+        angs (angles triangle)
+        degenerate (keep-indexed #(if (> %2 max-angle) %1) angs)]
+    (if (empty? degenerate)
+      (intersection B B* C C*)
+      (nth triangle (first degenerate)))))
