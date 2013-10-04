@@ -38,6 +38,11 @@
         dot-product (+ (* x1 x2) (* y1 y2))]
     (Math/acos dot-product)))
 
+(defn angles [triangle]
+  "all angles in a triangle"
+  (let [[A B C] triangle]
+    (map #(apply angle %) [[A B C] [B A C] [C A B]])))
+
 (defn rotate [p theta]
   "rotate point by theta"
   (let [[x y] p
