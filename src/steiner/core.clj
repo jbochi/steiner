@@ -56,7 +56,7 @@
   (v+ p1 (rotate (v- p2 p1) theta)))
 
 ; http://en.wikipedia.org/wiki/Line-line_intersection
-(defn intersection [p1 p2 p3 p4]
+(defn point-intersection [p1 p2 p3 p4]
   "calculate intersection of lines between points p1-p2 and p3-p4"
   (let [[x1 y1] p1
         [x2 y2] p2
@@ -86,4 +86,4 @@
             direction (if (> cross-product  0) d60 (- d60))
             C* (rotate-on-point A B (- direction))
             B* (rotate-on-point A C direction)]
-        (intersection B B* C C*)))))
+        (point-intersection B B* C C*)))))
