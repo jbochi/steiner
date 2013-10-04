@@ -16,3 +16,5 @@
   (expect (almost-equal (/ Math/PI 3) (angle C B A)))
   (expect (almost-equal (/ Math/PI 3) (angle C A B)))
   (expect Math/PI (reduce + (angles [A B C]))))
+
+(expect [90 45 45] (map #(int (/ (* 180 %) Math/PI)) (angles [[0 0] [0 1] [1 0]])))
