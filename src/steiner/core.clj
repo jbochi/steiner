@@ -6,9 +6,9 @@
   (let [[A B C] triangle
         max-angle (* 2/3 Math/PI)
         angs (angles triangle)
-        degenerate (keep-indexed #(if (> %2 max-angle) %1) angs)]
-    (if (seq degenerate)
-      (nth triangle (first degenerate))
+        degenerate-index (keep-indexed #(if (> %2 max-angle) %1) angs)]
+    (if (seq degenerate-index)
+      (nth triangle (first degenerate-index))
       (let [d60 (* 1/3 Math/PI)
             cross-product (det (v- A B) (v- A C))
             direction (if (> cross-product  0) d60 (- d60))
