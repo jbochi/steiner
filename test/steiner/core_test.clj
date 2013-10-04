@@ -1,6 +1,7 @@
 (ns steiner.core-test
   (:require [expectations :refer :all]
-            [steiner.core :refer :all]))
+            [steiner.core :refer :all]
+            [steiner.vector :refer :all]))
 
 
 (defn almost-equal [a b]
