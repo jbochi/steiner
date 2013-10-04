@@ -19,7 +19,7 @@
   (expect (almost-equal (* Math/PI 2/3) (angle S A B)))
   (expect (almost-equal (* Math/PI 2/3) (angle S A C)))
   (expect (almost-equal (* Math/PI 2/3) (angle S B C)))
-  (expect 1 (sum (angles A B C)))
+  (expect Math/PI (reduce + (angles [A B C])))
   (expect (almost-equal sqrt3 (distance A S)))
   (expect (almost-equal sqrt3 (distance B S)))
   (expect (almost-equal sqrt3 (distance C S)))
