@@ -29,3 +29,6 @@
       C [1/2 0.1]
       S (steiner-point [A B C])]
   (expect C S))
+
+
+(expect (+ 1 (Math/sqrt 3)) (steiner-tree [[1 0] [1 1] [0 0] [0 1]]))
