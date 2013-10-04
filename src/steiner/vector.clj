@@ -72,4 +72,3 @@
         numy (det [dp1p2 dy1y2] [dp3p4 dy3y4])
         dem (det [dx1x2 dy1y2] [dx3x4 dy3y4])]
     [(/ numx dem) (/ numy dem)]))
-
